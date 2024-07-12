@@ -1,0 +1,57 @@
+﻿@model IEnumerable<NVTLesson12_ontap.Models.Nvt_SACH>
+
+@{
+    ViewBag.Title = "NvtIndex";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("NVT: Create New", "NvtCreate")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nvt_TenSach)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nvt__SoTrang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nvt_NamXB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nvt_TrangThai)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nvt_TACGIA.Nvt_TenTG)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nvt_TenSach)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nvt__SoTrang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nvt_NamXB)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nvt_TrangThai)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nvt_TACGIA.Nvt_TenTG)
+        </td>
+        <td>
+            @Html.ActionLink("NVT: Edit", "NvtEdit", new { id=item.Nvt_MaSach.Trim() }) |
+            @Html.ActionLink("NVT: Details", "NvtDetails", new { id=item.Nvt_MaSach.Trim() }) |
+            @Html.ActionLink("NVT: Delete", "NvtDelete", new { id=item.Nvt_MaSach.Trim() })
+        </td>
+    </tr>
+}
+
+</table>

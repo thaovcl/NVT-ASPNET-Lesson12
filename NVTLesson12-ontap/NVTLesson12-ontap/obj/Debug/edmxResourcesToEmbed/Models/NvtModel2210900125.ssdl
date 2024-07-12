@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="NguyenVanThao_2210900125Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Nvt_SACH">
+    <Key>
+      <PropertyRef Name="Nvt_MaSach" />
+    </Key>
+    <Property Name="Nvt_MaSach" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nvt_TenSach" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nvt__SoTrang" Type="int" />
+    <Property Name="Nvt_NamXB" Type="int" />
+    <Property Name="Nvt_MaTG" Type="nchar" MaxLength="10" />
+    <Property Name="Nvt_TrangThai" Type="bit" />
+  </EntityType>
+  <EntityType Name="Nvt_TACGIA">
+    <Key>
+      <PropertyRef Name="Nvt_MaTG" />
+    </Key>
+    <Property Name="Nvt_MaTG" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Nvt_TenTG" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_Nvt_SACH_Nvt_TACGIA">
+    <End Role="Nvt_TACGIA" Type="Self.Nvt_TACGIA" Multiplicity="0..1" />
+    <End Role="Nvt_SACH" Type="Self.Nvt_SACH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Nvt_TACGIA">
+        <PropertyRef Name="Nvt_MaTG" />
+      </Principal>
+      <Dependent Role="Nvt_SACH">
+        <PropertyRef Name="Nvt_MaTG" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="NguyenVanThao_2210900125ModelStoreContainer">
+    <EntitySet Name="Nvt_SACH" EntityType="Self.Nvt_SACH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Nvt_TACGIA" EntityType="Self.Nvt_TACGIA" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Nvt_SACH_Nvt_TACGIA" Association="Self.FK_Nvt_SACH_Nvt_TACGIA">
+      <End Role="Nvt_TACGIA" EntitySet="Nvt_TACGIA" />
+      <End Role="Nvt_SACH" EntitySet="Nvt_SACH" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

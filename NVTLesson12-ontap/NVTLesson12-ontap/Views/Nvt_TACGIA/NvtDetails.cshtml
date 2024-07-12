@@ -1,0 +1,26 @@
+﻿@model NVTLesson12_ontap.Models.Nvt_TACGIA
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nvt_TACGIA</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nvt_TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nvt_TenTG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Nvt_MaTG }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

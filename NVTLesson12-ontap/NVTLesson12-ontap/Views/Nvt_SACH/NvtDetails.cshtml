@@ -1,0 +1,58 @@
+﻿@model NVTLesson12_ontap.Models.Nvt_SACH
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Nvt_SACH</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nvt_TenSach)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nvt_TenSach)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nvt__SoTrang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nvt__SoTrang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nvt_NamXB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nvt_NamXB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nvt_TrangThai)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nvt_TrangThai)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Nvt_TACGIA.Nvt_TenTG)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Nvt_TACGIA.Nvt_TenTG)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Nvt_MaSach }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

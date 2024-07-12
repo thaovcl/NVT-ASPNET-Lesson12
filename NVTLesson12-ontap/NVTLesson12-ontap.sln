@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34729.46
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVTLesson12-ontap", "NVTLesson12-ontap\NVTLesson12-ontap.csproj", "{205B6700-769E-408C-87D9-5C0A42F5E2C8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{205B6700-769E-408C-87D9-5C0A42F5E2C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{205B6700-769E-408C-87D9-5C0A42F5E2C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{205B6700-769E-408C-87D9-5C0A42F5E2C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{205B6700-769E-408C-87D9-5C0A42F5E2C8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13A71F7F-03C1-49AC-9DCE-81443853DF43}
+	EndGlobalSection
+EndGlobal
