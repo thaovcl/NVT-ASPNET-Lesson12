@@ -1,28 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="NguyenVanThao_2210900125Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-  <EntityType Name="Nvt_SACH">
-    <Key>
-      <PropertyRef Name="Nvt_MaSach" />
-    </Key>
-    <Property Name="Nvt_MaSach" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-    <Property Name="Nvt_TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Nvt__SoTrang" Type="Int32" />
-    <Property Name="Nvt_NamXB" Type="Int32" />
-    <Property Name="Nvt_MaTG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Nvt_TrangThai" Type="Boolean" />
-    <NavigationProperty Name="Nvt_TACGIA" Relationship="Self.FK_Nvt_SACH_Nvt_TACGIA" FromRole="Nvt_SACH" ToRole="Nvt_TACGIA" />
-  </EntityType>
   <EntityType Name="Nvt_TACGIA">
     <Key>
       <PropertyRef Name="Nvt_MaTG" />
     </Key>
     <Property Name="Nvt_MaTG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <Property Name="Nvt_TenTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <NavigationProperty Name="Nvt_SACH" Relationship="Self.FK_Nvt_SACH_Nvt_TACGIA" FromRole="Nvt_TACGIA" ToRole="Nvt_SACH" />
+    <NavigationProperty Name="Nvt_SACH" Relationship="NguyenVanThao_2210900125Model.FK_Nvt_SACH_Nvt_TACGIA" FromRole="Nvt_TACGIA" ToRole="Nvt_SACH" />
+  </EntityType>
+  <EntityContainer Name="NguyenVanThao_2210900125Entities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Nvt_TACGIA" EntityType="Self.Nvt_TACGIA" />
+    <EntitySet Name="sysdiagrams" EntityType="NguyenVanThao_2210900125Model.sysdiagram" />
+    <EntitySet Name="Nvt_SACH" EntityType="NguyenVanThao_2210900125Model.Nvt_SACH" />
+    <AssociationSet Name="FK_Nvt_SACH_Nvt_TACGIA" Association="NguyenVanThao_2210900125Model.FK_Nvt_SACH_Nvt_TACGIA">
+      <End Role="Nvt_TACGIA" EntitySet="Nvt_TACGIA" />
+      <End Role="Nvt_SACH" EntitySet="Nvt_SACH" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Nvt_SACH">
+    <Key>
+      <PropertyRef Name="Nvt_MaSach" />
+    </Key>
+    <Property Name="Nvt_MaSach" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Nvt_TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nvt_SoTrang" Type="Int32" />
+    <Property Name="Nvt_NamXB" Type="Int32" />
+    <Property Name="Nvt_MaTG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Nvt_TrangThai" Type="Boolean" />
+    <NavigationProperty Name="Nvt_TACGIA" Relationship="NguyenVanThao_2210900125Model.FK_Nvt_SACH_Nvt_TACGIA" FromRole="Nvt_SACH" ToRole="Nvt_TACGIA" />
   </EntityType>
   <Association Name="FK_Nvt_SACH_Nvt_TACGIA">
-    <End Role="Nvt_TACGIA" Type="Self.Nvt_TACGIA" Multiplicity="0..1" />
-    <End Role="Nvt_SACH" Type="Self.Nvt_SACH" Multiplicity="*" />
+    <End Type="NguyenVanThao_2210900125Model.Nvt_TACGIA" Role="Nvt_TACGIA" Multiplicity="0..1" />
+    <End Type="NguyenVanThao_2210900125Model.Nvt_SACH" Role="Nvt_SACH" Multiplicity="*" />
     <ReferentialConstraint>
       <Principal Role="Nvt_TACGIA">
         <PropertyRef Name="Nvt_MaTG" />
@@ -32,12 +51,4 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="NguyenVanThao_2210900125Entities2" annotation:LazyLoadingEnabled="true">
-    <EntitySet Name="Nvt_SACH" EntityType="Self.Nvt_SACH" />
-    <EntitySet Name="Nvt_TACGIA" EntityType="Self.Nvt_TACGIA" />
-    <AssociationSet Name="FK_Nvt_SACH_Nvt_TACGIA" Association="Self.FK_Nvt_SACH_Nvt_TACGIA">
-      <End Role="Nvt_TACGIA" EntitySet="Nvt_TACGIA" />
-      <End Role="Nvt_SACH" EntitySet="Nvt_SACH" />
-    </AssociationSet>
-  </EntityContainer>
 </Schema>

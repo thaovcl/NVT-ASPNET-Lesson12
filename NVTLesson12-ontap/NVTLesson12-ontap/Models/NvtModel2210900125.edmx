@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NguyenVanThao_2210900125Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="NguyenVanThao_2210900125Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Nvt_SACH">
           <Key>
             <PropertyRef Name="Nvt_MaSach" />
           </Key>
           <Property Name="Nvt_MaSach" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Nvt_TenSach" Type="nvarchar" MaxLength="50" />
-          <Property Name="Nvt__SoTrang" Type="int" />
+          <Property Name="Nvt_SoTrang" Type="int" />
           <Property Name="Nvt_NamXB" Type="int" />
           <Property Name="Nvt_MaTG" Type="nchar" MaxLength="10" />
           <Property Name="Nvt_TrangThai" Type="bit" />
@@ -22,6 +22,16 @@
           </Key>
           <Property Name="Nvt_MaTG" Type="nchar" MaxLength="10" Nullable="false" />
           <Property Name="Nvt_TenTG" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
         <Association Name="FK_Nvt_SACH_Nvt_TACGIA">
           <End Role="Nvt_TACGIA" Type="Self.Nvt_TACGIA" Multiplicity="0..1" />
@@ -38,39 +48,58 @@
         <EntityContainer Name="NguyenVanThao_2210900125ModelStoreContainer">
           <EntitySet Name="Nvt_SACH" EntityType="Self.Nvt_SACH" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Nvt_TACGIA" EntityType="Self.Nvt_TACGIA" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Nvt_SACH_Nvt_TACGIA" Association="Self.FK_Nvt_SACH_Nvt_TACGIA">
             <End Role="Nvt_TACGIA" EntitySet="Nvt_TACGIA" />
             <End Role="Nvt_SACH" EntitySet="Nvt_SACH" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="NguyenVanThao_2210900125Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Nvt_SACH">
-          <Key>
-            <PropertyRef Name="Nvt_MaSach" />
-          </Key>
-          <Property Name="Nvt_MaSach" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="Nvt_TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Nvt__SoTrang" Type="Int32" />
-          <Property Name="Nvt_NamXB" Type="Int32" />
-          <Property Name="Nvt_MaTG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Nvt_TrangThai" Type="Boolean" />
-          <NavigationProperty Name="Nvt_TACGIA" Relationship="Self.FK_Nvt_SACH_Nvt_TACGIA" FromRole="Nvt_SACH" ToRole="Nvt_TACGIA" />
-        </EntityType>
         <EntityType Name="Nvt_TACGIA">
           <Key>
             <PropertyRef Name="Nvt_MaTG" />
           </Key>
           <Property Name="Nvt_MaTG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <Property Name="Nvt_TenTG" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Nvt_SACH" Relationship="Self.FK_Nvt_SACH_Nvt_TACGIA" FromRole="Nvt_TACGIA" ToRole="Nvt_SACH" />
+          <NavigationProperty Name="Nvt_SACH" Relationship="NguyenVanThao_2210900125Model.FK_Nvt_SACH_Nvt_TACGIA" FromRole="Nvt_TACGIA" ToRole="Nvt_SACH" />
+        </EntityType>
+        <EntityContainer Name="NguyenVanThao_2210900125Entities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Nvt_TACGIA" EntityType="Self.Nvt_TACGIA" />
+          <EntitySet Name="sysdiagrams" EntityType="NguyenVanThao_2210900125Model.sysdiagram" />
+          <EntitySet Name="Nvt_SACH" EntityType="NguyenVanThao_2210900125Model.Nvt_SACH" />
+          <AssociationSet Name="FK_Nvt_SACH_Nvt_TACGIA" Association="NguyenVanThao_2210900125Model.FK_Nvt_SACH_Nvt_TACGIA">
+            <End Role="Nvt_TACGIA" EntitySet="Nvt_TACGIA" />
+            <End Role="Nvt_SACH" EntitySet="Nvt_SACH" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="Nvt_SACH">
+          <Key>
+            <PropertyRef Name="Nvt_MaSach" />
+          </Key>
+          <Property Name="Nvt_MaSach" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Nvt_TenSach" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Nvt_SoTrang" Type="Int32" />
+          <Property Name="Nvt_NamXB" Type="Int32" />
+          <Property Name="Nvt_MaTG" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Nvt_TrangThai" Type="Boolean" />
+          <NavigationProperty Name="Nvt_TACGIA" Relationship="NguyenVanThao_2210900125Model.FK_Nvt_SACH_Nvt_TACGIA" FromRole="Nvt_SACH" ToRole="Nvt_TACGIA" />
         </EntityType>
         <Association Name="FK_Nvt_SACH_Nvt_TACGIA">
-          <End Role="Nvt_TACGIA" Type="Self.Nvt_TACGIA" Multiplicity="0..1" />
-          <End Role="Nvt_SACH" Type="Self.Nvt_SACH" Multiplicity="*" />
+          <End Type="NguyenVanThao_2210900125Model.Nvt_TACGIA" Role="Nvt_TACGIA" Multiplicity="0..1" />
+          <End Type="NguyenVanThao_2210900125Model.Nvt_SACH" Role="Nvt_SACH" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Nvt_TACGIA">
               <PropertyRef Name="Nvt_MaTG" />
@@ -80,37 +109,40 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="NguyenVanThao_2210900125Entities2" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Nvt_SACH" EntityType="Self.Nvt_SACH" />
-          <EntitySet Name="Nvt_TACGIA" EntityType="Self.Nvt_TACGIA" />
-          <AssociationSet Name="FK_Nvt_SACH_Nvt_TACGIA" Association="Self.FK_Nvt_SACH_Nvt_TACGIA">
-            <End Role="Nvt_TACGIA" EntitySet="Nvt_TACGIA" />
-            <End Role="Nvt_SACH" EntitySet="Nvt_SACH" />
-          </AssociationSet>
-        </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="NguyenVanThao_2210900125ModelStoreContainer" CdmEntityContainer="NguyenVanThao_2210900125Entities2">
-          <EntitySetMapping Name="Nvt_SACH">
-            <EntityTypeMapping TypeName="NguyenVanThao_2210900125Model.Nvt_SACH">
-              <MappingFragment StoreEntitySet="Nvt_SACH">
-                <ScalarProperty Name="Nvt_MaSach" ColumnName="Nvt_MaSach" />
-                <ScalarProperty Name="Nvt_TenSach" ColumnName="Nvt_TenSach" />
-                <ScalarProperty Name="Nvt__SoTrang" ColumnName="Nvt__SoTrang" />
-                <ScalarProperty Name="Nvt_NamXB" ColumnName="Nvt_NamXB" />
-                <ScalarProperty Name="Nvt_MaTG" ColumnName="Nvt_MaTG" />
-                <ScalarProperty Name="Nvt_TrangThai" ColumnName="Nvt_TrangThai" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Nvt_TACGIA">
             <EntityTypeMapping TypeName="NguyenVanThao_2210900125Model.Nvt_TACGIA">
               <MappingFragment StoreEntitySet="Nvt_TACGIA">
                 <ScalarProperty Name="Nvt_MaTG" ColumnName="Nvt_MaTG" />
                 <ScalarProperty Name="Nvt_TenTG" ColumnName="Nvt_TenTG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="NguyenVanThao_2210900125Model.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Nvt_SACH">
+            <EntityTypeMapping TypeName="NguyenVanThao_2210900125Model.Nvt_SACH">
+              <MappingFragment StoreEntitySet="Nvt_SACH">
+                <ScalarProperty Name="Nvt_TrangThai" ColumnName="Nvt_TrangThai" />
+                <ScalarProperty Name="Nvt_MaTG" ColumnName="Nvt_MaTG" />
+                <ScalarProperty Name="Nvt_NamXB" ColumnName="Nvt_NamXB" />
+                <ScalarProperty Name="Nvt_SoTrang" ColumnName="Nvt_SoTrang" />
+                <ScalarProperty Name="Nvt_TenSach" ColumnName="Nvt_TenSach" />
+                <ScalarProperty Name="Nvt_MaSach" ColumnName="Nvt_MaSach" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

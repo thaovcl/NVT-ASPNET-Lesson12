@@ -5,7 +5,7 @@ GO
 CREATE TABLE [dbo].[Nvt_SACH](
 	[Nvt_MaSach] [nchar](10) NOT NULL,
 	[Nvt_TenSach] [nvarchar](50) NULL,
-	[Nvt__SoTrang] [int] NULL,
+	[Nvt_SoTrang] [int] NULL,
 	[Nvt_NamXB] [int] NULL,
 	[Nvt_MaTG] [nchar](10) NULL,
 	[Nvt_TrangThai] [bit] NULL,
@@ -31,12 +31,11 @@ CREATE TABLE [dbo].[Nvt_TACGIA](
 ) ON [PRIMARY]
 
 GO
-INSERT [dbo].[Nvt_SACH] ([Nvt_MaSach], [Nvt_TenSach], [Nvt__SoTrang], [Nvt_NamXB], [Nvt_MaTG], [Nvt_TrangThai]) VALUES (N'S1        ', N'Ngữ Văn', 200, 2023, N'T1        ', 1)
-INSERT [dbo].[Nvt_SACH] ([Nvt_MaSach], [Nvt_TenSach], [Nvt__SoTrang], [Nvt_NamXB], [Nvt_MaTG], [Nvt_TrangThai]) VALUES (N'S2        ', N'Toán', 150, 2022, N'T2        ', 0)
+INSERT [dbo].[Nvt_SACH] ([Nvt_MaSach], [Nvt_TenSach], [Nvt_SoTrang], [Nvt_NamXB], [Nvt_MaTG], [Nvt_TrangThai]) VALUES (N'S1        ', N'Ngữ Văn', 200, 2023, N'T1        ', 1)
+INSERT [dbo].[Nvt_SACH] ([Nvt_MaSach], [Nvt_TenSach], [Nvt_SoTrang], [Nvt_NamXB], [Nvt_MaTG], [Nvt_TrangThai]) VALUES (N'S2        ', N'Toán', 150, 2022, N'T2        ', 0)
 INSERT [dbo].[Nvt_TACGIA] ([Nvt_MaTG], [Nvt_TenTG]) VALUES (N'T1        ', N'Nguyễn Văn Thạo')
 INSERT [dbo].[Nvt_TACGIA] ([Nvt_MaTG], [Nvt_TenTG]) VALUES (N'T2        ', N'Nguyễn Văn Thạo')
 ALTER TABLE [dbo].[Nvt_SACH]  WITH CHECK ADD  CONSTRAINT [FK_Nvt_SACH_Nvt_TACGIA] FOREIGN KEY([Nvt_MaTG])
 REFERENCES [dbo].[Nvt_TACGIA] ([Nvt_MaTG])
 GO
 ALTER TABLE [dbo].[Nvt_SACH] CHECK CONSTRAINT [FK_Nvt_SACH_Nvt_TACGIA]
-GO

@@ -15,7 +15,7 @@
             @Html.DisplayNameFor(model => model.Nvt_TenSach)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Nvt__SoTrang)
+            @Html.DisplayNameFor(model => model.Nvt_SoTrang)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nvt_NamXB)
@@ -35,7 +35,7 @@
             @Html.DisplayFor(modelItem => item.Nvt_TenSach)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Nvt__SoTrang)
+            @Html.DisplayFor(modelItem => item.Nvt_SoTrang)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Nvt_NamXB)
@@ -47,9 +47,9 @@
             @Html.DisplayFor(modelItem => item.Nvt_TACGIA.Nvt_TenTG)
         </td>
         <td>
-            @Html.ActionLink("NVT: Edit", "NvtEdit", new { id=item.Nvt_MaSach.Trim() }) |
-            @Html.ActionLink("NVT: Details", "NvtDetails", new { id=item.Nvt_MaSach.Trim() }) |
-            @Html.ActionLink("NVT: Delete", "NvtDelete", new { id=item.Nvt_MaSach.Trim() })
+            @Html.ActionLink("NVT: Edit", "NvtEdit", new { id=item.Nvt_MaSach }) |
+            @Html.ActionLink("NVT: Details", "NvtDetails", new { id=item.Nvt_MaSach }) |
+            @Html.ActionLink("NVT: Delete", "NvtDelete", new { id=item.Nvt_MaSach })
         </td>
     </tr>
 }

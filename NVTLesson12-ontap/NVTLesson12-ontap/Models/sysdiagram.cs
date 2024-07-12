@@ -12,15 +12,12 @@ namespace NVTLesson12_ontap.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Nvt_SACH
+    public partial class sysdiagram
     {
-        public string Nvt_MaSach { get; set; }
-        public string Nvt_TenSach { get; set; }
-        public Nullable<int> Nvt_SoTrang { get; set; }
-        public Nullable<int> Nvt_NamXB { get; set; }
-        public string Nvt_MaTG { get; set; }
-        public Nullable<bool> Nvt_TrangThai { get; set; }
-    
-        public virtual Nvt_TACGIA Nvt_TACGIA { get; set; }
+        public string name { get; set; }
+        public int principal_id { get; set; }
+        public int diagram_id { get; set; }
+        public Nullable<int> version { get; set; }
+        public byte[] definition { get; set; }
     }
 }

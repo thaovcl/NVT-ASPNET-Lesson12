@@ -25,7 +25,8 @@ namespace NVTLesson12_ontap.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Nvt_SACH> Nvt_SACH { get; set; }
         public virtual DbSet<Nvt_TACGIA> Nvt_TACGIA { get; set; }
+        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
+        public virtual DbSet<Nvt_SACH> Nvt_SACH { get; set; }
     }
 }

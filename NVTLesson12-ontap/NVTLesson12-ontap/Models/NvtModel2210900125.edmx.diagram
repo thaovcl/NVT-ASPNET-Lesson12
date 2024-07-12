@@ -5,9 +5,10 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="8c1fac0fcfac4d6b9296030192f309cc" Name="Diagram1">
-        <EntityTypeShape EntityType="NguyenVanThao_2210900125Model.Nvt_SACH" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
         <EntityTypeShape EntityType="NguyenVanThao_2210900125Model.Nvt_TACGIA" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
-        <AssociationConnector Association="NguyenVanThao_2210900125Model.FK_Nvt_SACH_Nvt_TACGIA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="NguyenVanThao_2210900125Model.sysdiagram" Width="1.5" PointX="0.75" PointY="4.75" />
+        <EntityTypeShape EntityType="NguyenVanThao_2210900125Model.Nvt_SACH" Width="1.5" PointX="3" PointY="1" />
+        <AssociationConnector Association="NguyenVanThao_2210900125Model.FK_Nvt_SACH_Nvt_TACGIA" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

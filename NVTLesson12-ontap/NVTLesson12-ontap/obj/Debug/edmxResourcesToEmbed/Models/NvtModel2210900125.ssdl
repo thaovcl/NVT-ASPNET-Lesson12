@@ -6,7 +6,7 @@
     </Key>
     <Property Name="Nvt_MaSach" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Nvt_TenSach" Type="nvarchar" MaxLength="50" />
-    <Property Name="Nvt__SoTrang" Type="int" />
+    <Property Name="Nvt_SoTrang" Type="int" />
     <Property Name="Nvt_NamXB" Type="int" />
     <Property Name="Nvt_MaTG" Type="nchar" MaxLength="10" />
     <Property Name="Nvt_TrangThai" Type="bit" />
@@ -17,6 +17,16 @@
     </Key>
     <Property Name="Nvt_MaTG" Type="nchar" MaxLength="10" Nullable="false" />
     <Property Name="Nvt_TenTG" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <Association Name="FK_Nvt_SACH_Nvt_TACGIA">
     <End Role="Nvt_TACGIA" Type="Self.Nvt_TACGIA" Multiplicity="0..1" />
@@ -33,6 +43,7 @@
   <EntityContainer Name="NguyenVanThao_2210900125ModelStoreContainer">
     <EntitySet Name="Nvt_SACH" EntityType="Self.Nvt_SACH" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Nvt_TACGIA" EntityType="Self.Nvt_TACGIA" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_Nvt_SACH_Nvt_TACGIA" Association="Self.FK_Nvt_SACH_Nvt_TACGIA">
       <End Role="Nvt_TACGIA" EntitySet="Nvt_TACGIA" />
       <End Role="Nvt_SACH" EntitySet="Nvt_SACH" />

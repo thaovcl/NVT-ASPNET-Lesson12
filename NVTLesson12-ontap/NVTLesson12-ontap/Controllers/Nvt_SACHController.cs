@@ -48,7 +48,7 @@ namespace NVTLesson12_ontap.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NvtCreate([Bind(Include = "Nvt_MaSach,Nvt_TenSach,Nvt__SoTrang,Nvt_NamXB,Nvt_MaTG,Nvt_TrangThai")] Nvt_SACH nvt_SACH)
+        public ActionResult NvtCreate([Bind(Include = "Nvt_MaSach,Nvt_TenSach,Nvt_SoTrang,Nvt_NamXB,Nvt_MaTG,Nvt_TrangThai")] Nvt_SACH nvt_SACH)
         {
             if (ModelState.IsValid)
             {
@@ -82,7 +82,7 @@ namespace NVTLesson12_ontap.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult NvtEdit([Bind(Include = "Nvt_MaSach,Nvt_TenSach,Nvt__SoTrang,Nvt_NamXB,Nvt_MaTG,Nvt_TrangThai")] Nvt_SACH nvt_SACH)
+        public ActionResult NvtEdit([Bind(Include = "Nvt_MaSach,Nvt_TenSach,Nvt_SoTrang,Nvt_NamXB,Nvt_MaTG,Nvt_TrangThai")] Nvt_SACH nvt_SACH)
         {
             if (ModelState.IsValid)
             {

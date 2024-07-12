@@ -155,6 +155,9 @@
     <Compile Include="Models\Nvt_TACGIA.cs">
       <DependentUpon>NvtModel2210900125.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>NvtModel2210900125.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
